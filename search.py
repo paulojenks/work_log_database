@@ -34,7 +34,12 @@ class Search:
         elif self.category == "k":
             self.query = input("Enter name of task\n>").lower().strip()
         elif self.category == "m":
-            self.query = input("Enter duration(in minutes) of the task\n>")
+            while True:
+                try:
+                    self.query = int(input("Enter duration(in minutes) of the task\n>"))
+                    break
+                except ValueError:
+                    print("Try again!")
         else:
             self.query = input("Enter date (YYYY-MM-DD)\n>")
 

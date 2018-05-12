@@ -2,8 +2,13 @@ import datetime
 
 from peewee import *
 
+import os
 
 db = SqliteDatabase('work_log.db')
+
+
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 
 class Entry(Model):
@@ -15,6 +20,7 @@ class Entry(Model):
 
     class Meta:
         database = db
+
 
 def initialize():
     db.connect()

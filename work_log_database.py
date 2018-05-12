@@ -1,16 +1,12 @@
 #!/usr/bin/env python3
 
 from collections import OrderedDict
+from models import clear_screen
 
-import os
 
 from search import Search
 from add_task import AddTask
 from view import View
-
-
-def clear_screen():
-    os.system('cls' if os.name == 'nt' else 'clear')
 
 
 def main_menu():
@@ -22,6 +18,7 @@ def main_menu():
         for key, value in menu.items():
             print("{}) {}".format(key, value.__doc__))
         choice = input("Action:  ").lower().strip()
+        clear_screen()
 
         if choice in menu:
             menu[choice]()

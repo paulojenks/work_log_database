@@ -62,6 +62,8 @@ class ViewTasksTest(unittest.TestCase):
 
 
     def tearDown(self):
+        entry = Entry.get(Entry.select().where(Entry.task.contains("Test Task")))
+        entry.delete_instance()
         models.db.close()
 
     @patch('builtins.input')
